@@ -27,7 +27,11 @@ header, nav, section {
 footer{
   background: #eee;
   text-align: center;
+  padding: 10px ;
+}
+footer span {
+  margin: 0px 10px 0px 0px;
 }
 nav span {
-  0px,10px,0px,0px;
+  margin: 0px 10px 0px 0px;
 }

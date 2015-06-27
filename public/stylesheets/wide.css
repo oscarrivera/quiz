@@ -10,7 +10,7 @@ nav{
   height: 200px;
 }
 nav span {
-  margin: 0px 100px 0px 0px;
+  margin: 0px 200px 0px 0px;
 }
 section{
   float: right;
@@ -20,4 +20,10 @@ section{
 footer{
   clear: both;
   display: block;
+}
+#video-creditos{
+  float: left;
+}
+#img-creditos{
+  float: right;
 }
