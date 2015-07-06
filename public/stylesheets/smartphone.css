@@ -4,13 +4,16 @@ body{
 #page-wrap:after{
   content: "Smartphone Layout"
 }
-h2 span, section h3{
+h2 span, section h3, label.rem{
   display: none;
 }
 body{
   font-size: xx-large;
 }
-footer input{
+input button{
+  font-size: x-large;
+}
+footer{
   font-size: large;
 }
 #img-creditos{
