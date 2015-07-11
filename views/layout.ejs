@@ -10,6 +10,11 @@
 <link rel="stylesheet"
       media="only screen and (max-width: 480px)"
       href="/stylesheets/smartphone.css"/>
+<link rel="stylesheet"
+      media="only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 568px)"
+      href="/stylesheets/iphone5.css"/>
 
 </head>
 <body>
@@ -25,6 +30,15 @@
 
     </nav>
     <section class="main" id="s1">
+      <% if (errors.length) { %>
+  <span id='ErrorMsgs'>
+    Corregir errores:<br/>
+    <% for (var i in errors) { %>
+       <span> <%= errors[i].message %> </span><br/>
+    <% } %>
+  </span>
+<% } %>
+
       <%- body %>
 
     </section>
