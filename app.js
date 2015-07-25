@@ -25,6 +25,22 @@ app.use(cookieParser('Quiz 2015'));
 app.use(methodOverride('_method'));
 app.use(session());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//tiempo inactividad de sesion
+app.use(function(req, res, next) {
+    if(req.session.user){
+        if(!req.session.control_time){
+            req.session.control_time=(new Date()).getTime();
+        }else{
+            if((new Date()).getTime()-req.session.control_time > 120000){//2 min
+                delete req.session.user;
+            }
+        }
+        req.session.control_time=(new Date()).getTime();
+    }
+
+    next();
+});
 // Helpers dinamicos:
 app.use(function(req, res, next) {
 
