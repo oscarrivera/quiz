@@ -1,0 +1,17 @@
+<table>
+<tr>
+  <td>Ingrediente</td>
+  <td>Unidad</td>
+  <td>Proveedor</td>
+  <td>Familia</td>
+</tr>
+ <% var i; for (i=0; i < ingredientes.length; i++) { %>
+    <tr>
+      <td class="rem"><%= ingredientes[i].nombre %></td>
+      <td><%= ingredientes[i].unidad %></td>
+      <td class="rem"><%= ingredientes[i].proveedor %></td>
+      <td><%= ingredientes[i].familia %></td>
+    </tr>
+ <% } %>
+ </table><p>
+<a href="/ingredientes/new"><button type="button" id=crear_ingrediente>Nuevo Ingrediente</button></a>

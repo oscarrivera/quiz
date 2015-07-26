@@ -1,0 +1,45 @@
+<label for="nombre" class="rem">Nombre:</label>
+<input type="text" id="nombre" name="ingrediente[nombre]" value="<%= ingrediente.nombre %>" placeholder="Nombre" required/> <p>
+
+<label for="unidad" class="rem">Unidad:</label>
+<select name="ingrediente[unidad]" id="unidad" required>
+  <% if (ingrediente.unidad){ %>
+  <option value="<%= ingrediente.unidad %>" selected> <%= ingrediente.unidad %> </option>
+  <% }else{ %>
+  <option value="" disabled selected>Seleccione unidad...</option>
+  <% } %>
+  <option value="Kg">Kg</option>
+  <option value="Litros">Litros</option>
+  <option value="Unidades">Unidades</option>
+  <option value="Manojo">Manojo</option>
+  <option value="Caja">Caja</option>
+</select><p>
+<label for="proveedor" class="rem">Proveedor:</label>
+<select name="ingrediente[proveedor]" id="proveedor" required>
+  <% if (ingrediente.proveedor){ %>
+  <option value="<%= ingrediente.proveedor %>" selected> <%= ingrediente.proveedor %> </option>
+  <% }else{ %>
+    <option value="" disabled selected>Seleccione proveedor...</option>
+  <% } %>
+  <option value="MYG">MYG</option>
+  <option value="Capemi">Capemi</option>
+  <option value="Makro">Makro</option>
+  <option value="Porras">Porras</option>
+  <option value="ADM">ADM</option>
+</select><p>
+<label for="familia" class="rem">Familia:</label>
+<select name="ingrediente[familia]" id="familia" required>
+  <% if (ingrediente.familia){ %>
+  <option value="<%= ingrediente.familia %>" selected> <%= ingrediente.familia %> </option>
+  <% }else{ %>
+  <option value="" disabled selected>Seleccione familia...</option>
+  <% } %>
+  <option value="Pescado">Pescado</option>
+  <option value="Carne">Carne</option>
+  <option value="Despensa">Despensa</option>
+  <option value="Verduras">Verduras</option>
+  <option value="Congelados">Congelados</option>
+  <option value="Ovolacteos">Ovolacteos</option>
+</select><p>
+<a href="/ingredientes"><button type="button">Cancelar</button></a>
+<input type="submit" value="Salvar">

@@ -33,6 +33,9 @@ var Quiz = sequelize.import(quiz_path);
 var comment_path = path.join(__dirname,'comment');
 var Comment = sequelize.import(comment_path);
 
+var ingrediente_path = path.join(__dirname,'ingrediente');
+var Ingrediente = sequelize.import(ingrediente_path);
+
 Comment.belongsTo(Quiz);
 Quiz.hasMany(Comment);
 
@@ -40,6 +43,7 @@ Quiz.hasMany(Comment);
 
 exports.Quiz = Quiz; // exportar tabla Quiz
 exports.Comment = Comment;
+exports.Ingrediente = Ingrediente;
 // sequelize.sync() inicializa tabla de preguntas en DB
 sequelize.sync().then(function() {
   // then(..) ejecuta el manejador una vez creada la tabla
@@ -50,6 +54,21 @@ sequelize.sync().then(function() {
           {pregunta: 'Capital de Portugal', respuesta: 'Lisboa', tema:"Humanidades"},
           //para comprobar buscador alfabetico
           {pregunta: 'Capital de Andalucia',respuesta: 'Sevilla'}
+        ]
+      ).then(function(){console.log('Base de datos inicializada')});
+    };
+  });
+});
+
+sequelize.sync().then(function() {
+  // then(..) ejecuta el manejador una vez creada la tabla
+  Ingrediente.count().then(function (count){
+    if(count === 0) {   // la tabla se inicializa solo si está vacía
+      Ingrediente.bulkCreate(
+        [ {nombre: 'Harina',   proveedor: 'Makro', unidad:"Kg",familia:"Despensa"},
+          {nombre: 'Atún fresco',   proveedor: 'Morales y Godoy', unidad:"Kg",familia:"Pescado"},
+          //para comprobar buscador alfabetico
+          {nombre: 'Solomillo de cerdo',   proveedor: 'Capemi', unidad:"Kg",familia:"Carne"}
         ]
       ).then(function(){console.log('Base de datos inicializada')});
     };
